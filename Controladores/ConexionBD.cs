@@ -7,7 +7,7 @@ namespace Controladores
 {
     public static class ConexionBD
     {
-        private static string connectionString = "Server=DESKTOP-EIF8TVE\\SQLEXPRESS;Database=TiendaHardware;Trusted_Connection=True;";
+        private static string connectionString = "Server=Miserver;Database=TiendaHardware;Trusted_Connection=True;";
 
         public static SqlConnection ObtenerConexion()
         {
