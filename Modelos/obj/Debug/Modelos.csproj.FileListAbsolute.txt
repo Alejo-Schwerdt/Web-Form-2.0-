@@ -1,0 +1,6 @@
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Modelos\bin\Debug\Modelos.dll
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Modelos\bin\Debug\Modelos.pdb
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Modelos\obj\Debug\Modelos.dll
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Modelos\obj\Debug\Modelos.pdb

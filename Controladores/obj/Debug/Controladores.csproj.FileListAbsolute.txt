@@ -1,0 +1,9 @@
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Controladores\bin\Debug\Controladores.dll
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Controladores\bin\Debug\Controladores.pdb
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Controladores\bin\Debug\Modelos.dll
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Controladores\bin\Debug\Modelos.pdb
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Controladores\obj\Debug\Controladores.csproj.AssemblyReference.cache
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Controladores\obj\Debug\Controladores.csproj.CoreCompileInputs.cache
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Controladores\obj\Debug\Controla.588FD378.Up2Date
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Controladores\obj\Debug\Controladores.dll
+C:\Users\ALE\Desktop\Proyecto Hardware tienda\WebApplication1\Controladores\obj\Debug\Controladores.pdb
