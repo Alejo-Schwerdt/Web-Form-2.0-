@@ -11,26 +11,26 @@ namespace Vistas
 {
 
 
-    public partial class DetalleVentas
+    public partial class DetalleVentaUnica
     {
 
         /// <summary>
-        /// Control ddlOrdenar.
+        /// Control lblInfoVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlOrdenar;
+        protected global::System.Web.UI.WebControls.Label lblInfoVenta;
 
         /// <summary>
-        /// Control rptVentas.
+        /// Control gvDetalles.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptVentas;
+        protected global::System.Web.UI.WebControls.GridView gvDetalles;
 
         /// <summary>
         /// Control btnVolver.

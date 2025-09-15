@@ -1,92 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI.WebControls;
 using Controladores;
 using Modelos;
-using System.Data.SqlClient;
 
-namespace Vistas.DetalleVentas
+namespace Vistas
 {
     public partial class DetalleVentas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+            {
+                // Valor por defecto de orden
+                ddlOrdenar.SelectedValue = "FechaDesc";
                 CargarVentas();
+            }
         }
 
         private void CargarVentas()
         {
             List<Modelos.Venta> ventas = ObtenerVentasConDetalles();
+
+            // Ordenamiento según selección
+            switch (ddlOrdenar.SelectedValue)
+            {
+                case "FechaAsc":
+                    ventas = ventas.OrderBy(v => v.FechaVenta).ToList();
+                    break;
+                case "FechaDesc":
+                    ventas = ventas.OrderByDescending(v => v.FechaVenta).ToList();
+                    break;
+                case "TotalAsc":
+                    ventas = ventas.OrderBy(v => v.TotalVenta ?? 0m).ToList();
+                    break;
+                case "TotalDesc":
+                    ventas = ventas.OrderByDescending(v => v.TotalVenta ?? 0m).ToList();
+                    break;
+            }
+
             rptVentas.DataSource = ventas;
             rptVentas.DataBind();
         }
 
-        protected void btnVolver_Click(object sender, EventArgs e)
+        protected void ddlOrdenar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Response.Redirect("Index.aspx");
+            CargarVentas();
         }
 
+        // Vincula el Repeater hijo (detalles) por cada venta
+        protected void rptVentas_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType != ListItemType.Item && e.Item.ItemType != ListItemType.AlternatingItem)
+                return;
+
+            var venta = e.Item.DataItem as Modelos.Venta;
+            var rptDetalles = e.Item.FindControl("rptDetalles") as Repeater;
+            if (venta != null && rptDetalles != null)
+            {
+                rptDetalles.DataSource = venta.Detalles;
+                rptDetalles.DataBind();
+            }
+        }
+
+        // Maneja el botón Ver Detalle
+        protected void rptVentas_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "VerDetalle")
+            {
+                int idVenta = Convert.ToInt32(e.CommandArgument);
+                // Redirige a tu página única de detalle pasando id
+                Response.Redirect("~/DetalleVentaUnica.aspx?id=" + idVenta);
+            }
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            // Ajustá la ruta según dónde esté tu Index.aspx
+            Response.Redirect("~/Index.aspx");
+        }
+
+        // --- tu método original para leer ventas desde DB. Mantenerlo o usar el existente ---
         private List<Modelos.Venta> ObtenerVentasConDetalles()
         {
-            List<Modelos.Venta> ventas = new List<Modelos.Venta>();
-
-            using (SqlConnection conn = ConexionBD.ObtenerConexion())
-            {
-                conn.Open();
-
-                // Obtener ventas
-                string queryVentas = "SELECT IdVenta, FechaVenta, TotalVenta FROM Ventas";
-                SqlCommand cmdVentas = new SqlCommand(queryVentas, conn);
-                using (SqlDataReader reader = cmdVentas.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Modelos.Venta venta = new Modelos.Venta
-                        {
-                            IdVenta = Convert.ToInt32(reader["IdVenta"]),
-                            FechaVenta = Convert.ToDateTime(reader["FechaVenta"]),
-                            TotalVenta = Convert.ToDecimal(reader["TotalVenta"]),
-                            Detalles = new List<DetalleVenta>()
-                        };
-                        ventas.Add(venta);
-                    }
-                }
-
-                // Obtener detalles
-                foreach (var venta in ventas)
-                {
-                    string queryDetalles = @"
-                        SELECT d.IdProducto, d.Cantidad, d.PrecioUnitario, 
-                               p.NombreProducto
-                        FROM DetalleVenta d
-                        JOIN Productos p ON d.IdProducto = p.IdProducto
-                        WHERE d.IdVenta = @IdVenta";
-
-                    SqlCommand cmdDetalles = new SqlCommand(queryDetalles, conn);
-                    cmdDetalles.Parameters.AddWithValue("@IdVenta", venta.IdVenta);
-
-                    using (SqlDataReader reader = cmdDetalles.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            DetalleVenta detalle = new DetalleVenta
-                            {
-                                IdProducto = Convert.ToInt32(reader["IdProducto"]),
-                                Cantidad = Convert.ToInt32(reader["Cantidad"]),
-                                PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]),
-                                Producto = new Modelos.Producto
-                                {
-                                    NombreProducto = reader["NombreProducto"].ToString()
-                                }
-                            };
-                            venta.Detalles.Add(detalle);
-                        }
-                    }
-                }
-            }
-
-            return ventas;
+            // Si ya tienes este método en tu code-behind original, úsalo.
+            // Aquí asumimos que existe y funciona (tal como lo tenías antes).
+            // Si no, pega aquí tu implementación previa (que consultaba Ventas y DetalleVenta).
+            return VentaControlador.ObtenerVentasConDetalles(); // si lo tienes en el controlador
         }
     }
 }

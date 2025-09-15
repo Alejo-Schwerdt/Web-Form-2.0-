@@ -19,4 +19,11 @@ namespace Modelos
 
         private List<DetalleVenta> listaItemsVenta = new List<DetalleVenta>();
     }
+    public class DetalleVentaDTO
+    {
+        public string NombreProducto { get; set; }
+        public int Cantidad { get; set; }
+        public decimal PrecioUnitario { get; set; }
+        public decimal Subtotal { get; set; }
+    }
 }
