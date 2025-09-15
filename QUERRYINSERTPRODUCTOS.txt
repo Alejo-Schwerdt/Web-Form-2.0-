@@ -1,0 +1,29 @@
+INSERT INTO Productos (NombreProducto, DescripcionProducto, TipoProducto, ValorProducto, StockProducto, MarcaProducto, Estado)
+VALUES 
+
+('Mouse Óptico MX100', 'Mouse óptico con cable USB', 'Mouse', 1999.99, 50, 'LogiTech', 1),
+('Mouse Gamer GX200', 'Mouse gamer con RGB y 6 botones', 'Mouse', 5499.50, 30, 'RedDragon', 1),
+('Mouse Inalámbrico Slim', 'Mouse inalámbrico bluetooth', 'Mouse', 2999.00, 40, 'Genius', 1),
+('Mouse Vertical Pro', 'Mouse ergonómico vertical', 'Mouse', 4290.00, 20, 'Trust', 1),
+('Mouse Compact USB', 'Mouse compacto ideal para laptops', 'Mouse', 1690.00, 35, 'HP', 1),
+
+
+('Teclado Mecánico RGB K500', 'Teclado mecánico con luces RGB', 'Teclado', 8999.00, 25, 'RedDragon', 1),
+('Teclado Inalámbrico Slim', 'Teclado inalámbrico compacto', 'Teclado', 4590.00, 40, 'LogiTech', 1),
+('Teclado Gamer Retroiluminado', 'Teclado con retroiluminación LED', 'Teclado', 5990.00, 18, 'HyperX', 1),
+('Teclado Multimedia KB100', 'Teclado con teclas multimedia', 'Teclado', 2990.00, 32, 'Genius', 1),
+('Teclado USB Básico', 'Teclado simple con conexión USB', 'Teclado', 1890.00, 50, 'HP', 1),
+
+
+('Micrófono de Estudio BM-800', 'Micrófono condensador profesional', 'Micrófono', 9990.00, 15, 'Neewer', 1),
+('Micrófono USB Plug & Play', 'Micrófono USB para streaming', 'Micrófono', 6590.00, 20, 'Trust', 1),
+('Micrófono Clip Lavalier', 'Micrófono de solapa con cable', 'Micrófono', 2490.00, 35, 'Sony', 1),
+('Micrófono Inalámbrico Pro', 'Micrófono inalámbrico con receptor', 'Micrófono', 12990.00, 10, 'Shure', 1),
+('Micrófono de Escritorio Básico', 'Micrófono para videollamadas', 'Micrófono', 1890.00, 45, 'Genius', 1),
+
+
+('Auriculares Over-Ear Studio', 'Auriculares profesionales cerrados', 'Auriculares', 7990.00, 20, 'Audio-Technica', 1),
+('Auriculares In-Ear Bluetooth', 'Auriculares inalámbricos deportivos', 'Auriculares', 3990.00, 30, 'JBL', 1),
+('Auriculares Gamer 7.1', 'Auriculares con micrófono y sonido 7.1', 'Auriculares', 6990.00, 25, 'HyperX', 1),
+('Auriculares con Cable Estéreo', 'Auriculares con jack 3.5mm', 'Auriculares', 2290.00, 40, 'Philips', 1),
+('Auriculares Noise Cancelling', 'Auriculares con cancelación de ruido', 'Auriculares', 11990.00, 12, 'Sony', 1);

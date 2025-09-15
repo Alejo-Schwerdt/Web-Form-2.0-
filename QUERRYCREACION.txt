@@ -1,0 +1,38 @@
+CREATE DATABASE TiendaHardware;
+GO
+
+USE TiendaHardware;
+GO
+
+-- Tabla de productos
+CREATE TABLE Productos (
+    IdProducto INT PRIMARY KEY IDENTITY(1,1),
+    NombreProducto NVARCHAR(100) NOT NULL,
+    DescripcionProducto NVARCHAR(255),
+    TipoProducto NVARCHAR(50),
+    ValorProducto DECIMAL(10,2) NOT NULL,
+    StockProducto INT NOT NULL,
+    MarcaProducto NVARCHAR(50),
+    Estado BIT NOT NULL DEFAULT 1 
+);
+GO
+
+-- Tabla de ventas
+CREATE TABLE Ventas (
+    IdVenta INT PRIMARY KEY IDENTITY(1,1),
+    FechaVenta DATETIME DEFAULT GETDATE(),
+    TotalVenta DECIMAL(10,2) NULL
+);
+GO
+
+-- Tabla detalle de venta
+CREATE TABLE DetalleVenta (
+    IdDetalleVenta INT PRIMARY KEY IDENTITY(1,1),
+    IdVenta INT NOT NULL,
+    IdProducto INT NOT NULL,
+    Cantidad INT NOT NULL,
+    PrecioUnitario DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (IdVenta) REFERENCES Ventas(IdVenta),
+    FOREIGN KEY (IdProducto) REFERENCES Productos(IdProducto)
+);
+GO
